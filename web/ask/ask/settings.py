@@ -25,7 +25,7 @@ SECRET_KEY = 'j$+iayck$4_o@aosbhh-^vilp8a6z1ub9&$k1)wtqzy187tnwc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ask',
+    'qa',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +120,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+'''
+Настройка относительных путей расположения файлов
+
+import os.path
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+BASE_DIR = os.path.abspath(__file__) - определяем абсолютный путь текущего файла настроек
+BASE_DIR = os.path.dirname(BASE_DIR) - определяем в какой директории находится файл
+BASE_DIR = os.path.dirname(BASE_DIR) - определяем в какой директории ниходится директория с файлом(т.е. поднимаемся на уровень выше текущего)
+
+example of use:
+STATIC_ROOT = BASE_DIR + "/static"
+'''
